@@ -1,0 +1,155 @@
+<Window x:Class="SNNReturn.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SNNReturn"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+    <Grid>
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="172*" />
+            <RowDefinition Height="193*"/>
+
+
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row=" 0" Margin="0,0,0.333,0.333">
+
+
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="248*" />
+                <ColumnDefinition Width="545*" />
+
+            </Grid.ColumnDefinitions>
+
+            <TextBox  Grid.Row ="0" Grid.Column ="1" x:Name="SerialNumber"  TextChanged="SerialNumber_TextChanged" Margin="37,0,288.333,40.334" RenderTransformOrigin="0.515,-0.038"  />
+            <TextBlock  Name= "txtinput" Grid.Row ="0" Grid.Column ="0" Foreground="Blue"  FontSize="23" Text="ovjfdosv" Margin="0,0,0,-0.666"/>
+        </Grid>
+        <Grid Grid.Row="1" Margin="0,2.667,0.333,1.333">
+
+
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition />
+                <ColumnDefinition />
+
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+
+
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="107*" />
+                    <ColumnDefinition Width="290*" />
+
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition/>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="  Mac Address" FontSize="15" FontFamily="Bold" />
+                <TextBlock Grid.Row="1" Text="  Cal Date" FontSize="15" FontFamily="Bold"/>
+                <TextBlock Grid.Row="2" Text="   Status" FontSize="15" FontFamily="Bold"/>
+                <TextBlock Grid.Row="3" Text="   Fail Code" FontSize="15" FontFamily="Bold"/>
+
+                <TextBlock Grid.Row="0" Grid.Column="1"  FontSize="15" FontFamily="Bold" Name ="Mac"/>
+                <TextBlock Grid.Row="1" Grid.Column="1"  FontSize="15" FontFamily="Bold" Name ="Date"/>
+                <TextBlock Grid.Row="2" Grid.Column="1"  FontSize="15" FontFamily="Bold" Name ="Status"/>
+                <TextBlock Grid.Row="3" Grid.Column="1"  FontSize="15" FontFamily="Bold" Name ="Error" Foreground="Red"/>
+
+                <Button Grid.Row="4" Grid.Column="0" Name ="PrevButton" Content="Previous" Click="PrevButton_Click"/>
+                <Button Grid.Row="4" Grid.Column="1" Name ="NextButton" Content="Next" Click="NextButton_Click" Margin="0.333,0,179.667,0"/>
+
+
+
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition  />
+                    <ColumnDefinition  />
+
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition/>
+                    <RowDefinition />
+                    <RowDefinition />
+
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Grid.ColumnSpan="2" >
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition/>
+                        <RowDefinition />
+                  
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition  />
+                        <ColumnDefinition  />
+
+                    </Grid.ColumnDefinitions>
+                    <CheckBox Grid.Row="0" Grid.Column="0" Content="Return to Prodution " FontSize="15" Name="Pro" Checked="Pro_Checked"/>
+                    <CheckBox Grid.Row="0" Grid.Column="1" Content="Return to Manufacturer " FontSize="15" Name="Man" Checked="Man_Checked" />
+                    <CheckBox Grid.Row="1" Grid.Column="0" Content="Scrap" FontSize="15" Name="Scrap" Checked="Scrap_Checked"/>
+                    <CheckBox Grid.Row="1" Grid.Column="1" Content="Further Analysis" FontSize="15" Name="FA"  Checked="FA_Checked"/>
+                </Grid>
+
+                
+                <CheckBox Grid.Row="1" Grid.Column="0" Content="Physical Nonconformities" FontSize="15" Name="defect" Checked="Defect_Checked" Unchecked="Defect_Unchecked"/>
+
+                <TextBox  Grid.Row ="1" Grid.Column ="1" Name ="defectDesc" Background="LightGreen" />
+
+                <Button Grid.Row="2" Name ="Submit_Button" Content="Submit" Click="Submit_Button_Click" Grid.ColumnSpan="2" Margin="100,0,100.667,0" RenderTransformOrigin="0.244,0.601"/>
+
+
+
+
+            </Grid>
+
+
+        </Grid>
+        <Grid Grid.Row="2" Margin="0,3.667,0.333,-0.333">
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="4*"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <DataGrid  Grid.Row="0" Name ="MyDataGrid" HorizontalAlignment="Left" Height="186" VerticalAlignment="Top" ItemsSource ="{Binding ReturnList}" Width="793" Grid.RowSpan="2"/>
+            <Grid Grid.Row="1" Margin="0,0,0,-4">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition  />
+                    <ColumnDefinition  />
+
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="1"  Name ="Delete" Content="Delete Entry" Click="Delete_Click"  RenderTransformOrigin="0.5,0.5"/>
+                <Button Grid.Column="0"  Name ="Record" Content="Record Data" Click="Record_Click"  RenderTransformOrigin="0.5,0.5"/>
+
+
+
+
+
+
+            </Grid>
+        </Grid>
+
+
+    </Grid>
+
+
+
+</Window>
